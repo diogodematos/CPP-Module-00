@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:57:44 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/05 11:54:34 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:10:18 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,21 @@
 
 #include <iostream>
 #include <cstring>
+#include "Contact.hpp"
 
 class Phonebook
 {
+	private:
+		
+		Contact	contact[8];
 	
-};
-
-class	Contact
-{
-	
+	public:
+			
+		int	i;
+		Phonebook(void);
+		void	add(void);
+		void	search(void);
+		void	setContact(int i);
 };
 
 #endif
