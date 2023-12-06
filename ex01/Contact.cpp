@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:55:31 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/05 17:16:50 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:50:08 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void Contact::setNickname(const std::string& nick) {
 }
 
 void	Contact::setPhoneNumber(const int&	pn){
-		phonenumber = pn; 
+	phonenumber = pn; 
 }
 
 void Contact::setDarkSecret(const std::string& ds) {
