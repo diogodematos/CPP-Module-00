@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:34:33 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/06 12:56:09 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/06 14:56:40 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ int	main(int argc, char **argv)
 	{
 		std::cout << "What you want to do? (ADD) | (SEARCH) | (EXIT)" << std::endl;
 		std::cin >> input;
-		if (input == "ADD")
+		if (input == "ADD" || input == "add")
 			yellow.setContact(yellow.i);
-		else if (input == "SEARCH")
+		else if (input == "SEARCH" || input == "search")
 			yellow.search() ;
-		else if (input == "EXIT")
+		else if (input == "EXIT" || input == "exit")
 			return (0);
 		else
 			std::cout << "Wrong Command!" << std::endl;
