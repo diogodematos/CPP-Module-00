@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:34:33 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/06 14:56:40 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:10:17 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 Phonebook::Phonebook(void){}
 
-void	Phonebook::setContact(int i){
+void	Phonebook::setContact(){
 	std::string	input;
-	int	inputn;
 	
+	if (i == 3)
+		i = 0;
 	std::cout << "First name: ";
 	std::cin >> input;
 	contact[i].setFirstName(input);
@@ -28,43 +29,48 @@ void	Phonebook::setContact(int i){
 	std::cin >> input;
 	contact[i].setNickname(input);
 	std::cout << "Phone Number: ";
-	std::cin >> inputn;
-	contact[i].setPhoneNumber(inputn);
+	std::cin >> input;
+	contact[i].setPhoneNumber(input);
 	std::cout << "Dark Secret: ";
 	std::cin >> input;
 	contact[i].setDarkSecret(input);
-	this->i += 1;
+	if (contact[i].getPhoneNumber() != "Number Wrong")
+	{	
+		i += 1;
+		if (size < 3)
+			size++;
+	}
 }
 
 void	Phonebook::search(void)
 {
-	int i = -1;
-	if (this->i == 0)
+	int j = -1;
+	if (size == 0)
 		std::cout << "PhoneBook is empty" << std::endl;
 	else
 	{
 		std::cout << "List of Contacts" << std::endl;
-		while (++i < this->i)
+		while (++j < size)
 		{
-			std::cout << "Contact: " <<  i;
-			std::cout << "  |  First Name: " << contact[i].getFirstName();
-			std::cout << "  |  Last Name: " << contact[i].getLastName();
-			std::cout << "  |  Nickname: " << contact[i].getNickname() << std::endl;
+			std::cout << "Contact: " <<  j+1;
+			std::cout << "  |  First Name: " << contact[j].getFirstName();
+			std::cout << "  |  Last Name: " << contact[j].getLastName();
+			std::cout << "  |  Nickname: " << contact[j].getNickname() << std::endl;
 		}
 		std::cout << "Choose the contact: ";
-		std::cin >> i;
-		if (((i+1) < 1)  || ((i +1) > this->i))
+		std::cin >> j;
+		if (((j) < 1)  || ((j) > size))
 		{
 			std::cout << "Wrong Contact" << std::endl;
 			Phonebook::search();		
 		}
 		else
 		{
-			std::cout << "First Name: " << contact[i].getFirstName() << std::endl;
-			std::cout << "Last Name: " << contact[i].getLastName() << std::endl;
-			std::cout << "Nickname: " << contact[i].getNickname() << std::endl;
-			std::cout << "Phone Number: " << contact[i].getPhoneNumber() << std::endl;
-			std::cout << "DarkSecret: " << contact[i].getDarkSecret() << std::endl;
+			std::cout << "First Name: " << contact[j-1].getFirstName() << std::endl;
+			std::cout << "Last Name: " << contact[j-1].getLastName() << std::endl;
+			std::cout << "Nickname: " << contact[j-1].getNickname() << std::endl;
+			std::cout << "Phone Number: " << contact[j-1].getPhoneNumber() << std::endl;
+			std::cout << "DarkSecret: " << contact[j-1].getDarkSecret() << std::endl;
 		}
 	}
 	return ;
@@ -82,13 +88,14 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	yellow.i = 0;
+	yellow.size = 0;
 	std::cout << "Welcome to PhoneBook! " << std::endl;
 	while (1)
 	{
 		std::cout << "What you want to do? (ADD) | (SEARCH) | (EXIT)" << std::endl;
 		std::cin >> input;
 		if (input == "ADD" || input == "add")
-			yellow.setContact(yellow.i);
+			yellow.setContact();
 		else if (input == "SEARCH" || input == "search")
 			yellow.search() ;
 		else if (input == "EXIT" || input == "exit")

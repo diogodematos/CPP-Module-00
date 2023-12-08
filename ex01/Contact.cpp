@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:55:31 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/06 14:52:05 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:56:52 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ std::string Contact::getNickname() const {
     return nickname;
 }
 
-int	Contact::getPhoneNumber() const {
-		return phonenumber;
+std::string	Contact::getPhoneNumber() const {
+	return phonenumber;
 }
 
 std::string Contact::getDarkSecret() const {
@@ -52,12 +52,19 @@ void Contact::setNickname(const std::string& nick) {
     nickname = nick;
 }
 
-void	Contact::setPhoneNumber(const int&	pn){
+void	Contact::setPhoneNumber(const std::string&	pn){
 	
-    if (pn < 0 || pn > 200000000)
-        std::cout << "error number" << std::endl;
-    else
-        phonenumber = pn; 
+    int i = -1;
+    while(pn[++i])
+    {
+        if (std::isdigit(pn[i]) == false)
+        {
+            std::cout << "Number Wrong" << std::endl;
+            phonenumber = "Number Wrong";
+            return ;    
+        }
+    }
+    phonenumber = pn; 
 }
 
 void Contact::setDarkSecret(const std::string& ds) {
