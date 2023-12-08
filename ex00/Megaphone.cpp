@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:02:13 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/04 17:40:41 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:51:50 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
+
 
 int	main(int argc, char **argv)
 {
 	int i = 1;
-	int j;
-	
+	int	j;
+
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
@@ -27,11 +29,10 @@ int	main(int argc, char **argv)
 		while (argv[i])
 		{
 			j = 0;
+			std::cout << " ";
 			while (argv[i][j])
 			{
-				if (argv[i][j] > 96 && argv[i][j] < 123)
-					argv[i][j] -= 32;
-				std::cout << argv[i][j];
+				std::cout << (char)std::toupper(argv[i][j]);
 				j++;
 			}
 			i++;
@@ -40,3 +41,32 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+// int	main(int argc, char **argv)
+// {
+// 	int i = 1;
+// 	int j;
+	
+// 	if (argc == 1)
+// 	{
+// 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+// 		return (0);
+// 	}
+// 	else
+// 	{
+// 		while (argv[i])
+// 		{
+// 			j = 0;
+// 			while (argv[i][j])
+// 			{
+// 				if (argv[i][j] > 96 && argv[i][j] < 123)
+// 					argv[i][j] -= 32;
+// 				std::cout << argv[i][j];
+// 				j++;
+// 			}
+// 			i++;
+// 		}
+// 		std::cout << std::endl;
+// 	}
+// 	return (0);
+// }
+
