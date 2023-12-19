@@ -6,15 +6,11 @@
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:55:31 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/08 16:56:52 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:52:17 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-
-// Constructor
-// Contact::Contact(const std::string& fn, const std::string& ln, const std::string& nick, const int& pn, const std::string& ds)
-//     : firstname(fn), lastname(ln), nickname(nick), phonenumber(pn), darksecret(ds) {}
 
 Contact::Contact(void){};
 

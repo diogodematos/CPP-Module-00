@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:34:33 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/08 18:10:17 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:53:25 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 Phonebook::Phonebook(void){}
 
-void	Phonebook::setContact(){
+void	Phonebook::addContact(){
 	std::string	input;
 	
-	if (i == 3)
+	if (i == 8)
 		i = 0;
 	std::cout << "First name: ";
 	std::cin >> input;
@@ -37,13 +37,14 @@ void	Phonebook::setContact(){
 	if (contact[i].getPhoneNumber() != "Number Wrong")
 	{	
 		i += 1;
-		if (size < 3)
+		if (size < 8)
 			size++;
 	}
 }
 
 void	Phonebook::search(void)
 {
+	char	imput;
 	int j = -1;
 	if (size == 0)
 		std::cout << "PhoneBook is empty" << std::endl;
@@ -58,7 +59,8 @@ void	Phonebook::search(void)
 			std::cout << "  |  Nickname: " << contact[j].getNickname() << std::endl;
 		}
 		std::cout << "Choose the contact: ";
-		std::cin >> j;
+		std::cin >> imput;
+		j = imput - 48;
 		if (((j) < 1)  || ((j) > size))
 		{
 			std::cout << "Wrong Contact" << std::endl;
@@ -95,7 +97,7 @@ int	main(int argc, char **argv)
 		std::cout << "What you want to do? (ADD) | (SEARCH) | (EXIT)" << std::endl;
 		std::cin >> input;
 		if (input == "ADD" || input == "add")
-			yellow.setContact();
+			yellow.addContact();
 		else if (input == "SEARCH" || input == "search")
 			yellow.search() ;
 		else if (input == "EXIT" || input == "exit")

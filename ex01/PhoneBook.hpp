@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:57:44 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/08 17:25:10 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:53:09 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class Phonebook
 {
 	private:
 		
-		Contact	contact[3];
+		Contact	contact[8];
 		
-	
 	public:
 			
 		int	i;
@@ -31,7 +30,7 @@ class Phonebook
 		Phonebook(void);
 		void	add(void);
 		void	search(void);
-		void	setContact();
+		void	addContact();
 };
 
 #endif
