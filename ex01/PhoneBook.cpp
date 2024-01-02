@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:34:33 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/18 14:53:25 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:52:26 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ void	Phonebook::addContact(){
 	}
 }
 
+std::string Phonebook::Formatten(std::string input)
+{
+	return input.length() > 10 ? input.substr(0, 9) + "." : input;
+}
+
 void	Phonebook::search(void)
 {
 	char	imput;
@@ -53,26 +58,30 @@ void	Phonebook::search(void)
 		std::cout << "List of Contacts" << std::endl;
 		while (++j < size)
 		{
-			std::cout << "Contact: " <<  j+1;
-			std::cout << "  |  First Name: " << contact[j].getFirstName();
-			std::cout << "  |  Last Name: " << contact[j].getLastName();
-			std::cout << "  |  Nickname: " << contact[j].getNickname() << std::endl;
+			std::cout << std::setw(10) << std::right <<  j+1 << " | ";
+			std::cout << std::setw(10) << std::right << Formatten(contact[j].getFirstName()) << " | ";
+			std::cout << std::setw(10) << std::right << Formatten(contact[j].getLastName()) << " | ";
+			std::cout << std::setw(10) << std::right << Formatten(contact[j].getNickname()) << std::endl;
 		}
 		std::cout << "Choose the contact: ";
-		std::cin >> imput;
-		j = imput - 48;
-		if (((j) < 1)  || ((j) > size))
+		while (!std::cin.eof())
 		{
-			std::cout << "Wrong Contact" << std::endl;
-			Phonebook::search();		
-		}
-		else
-		{
-			std::cout << "First Name: " << contact[j-1].getFirstName() << std::endl;
-			std::cout << "Last Name: " << contact[j-1].getLastName() << std::endl;
-			std::cout << "Nickname: " << contact[j-1].getNickname() << std::endl;
-			std::cout << "Phone Number: " << contact[j-1].getPhoneNumber() << std::endl;
-			std::cout << "DarkSecret: " << contact[j-1].getDarkSecret() << std::endl;
+			std::cin >> imput;
+			j = imput - 48;
+			if (((j) < 1)  || ((j) > size))
+			{
+				std::cout << "Wrong Contact" << std::endl;
+				Phonebook::search();		
+			}
+			else
+			{
+				std::cout << "First Name: " << contact[j-1].getFirstName() << std::endl;
+				std::cout << "Last Name: " << contact[j-1].getLastName() << std::endl;
+				std::cout << "Nickname: " << contact[j-1].getNickname() << std::endl;
+				std::cout << "Phone Number: " << contact[j-1].getPhoneNumber() << std::endl;
+				std::cout << "DarkSecret: " << contact[j-1].getDarkSecret() << std::endl;
+				return ;
+			}
 		}
 	}
 	return ;
@@ -92,7 +101,7 @@ int	main(int argc, char **argv)
 	yellow.i = 0;
 	yellow.size = 0;
 	std::cout << "Welcome to PhoneBook! " << std::endl;
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << "What you want to do? (ADD) | (SEARCH) | (EXIT)" << std::endl;
 		std::cin >> input;

@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:57:44 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/18 14:53:09 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:46:51 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-#include <iostream>
-#include <cstring>
 #include "Contact.hpp"
 
 class Phonebook
@@ -31,6 +29,7 @@ class Phonebook
 		void	add(void);
 		void	search(void);
 		void	addContact();
+		std::string Formatten(std::string input);
 };
 
 #endif

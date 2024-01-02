@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:36:10 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/08 15:58:59 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:19:35 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
 
-#include	<iostream>
+#include <iostream>
 #include <cstring>
+#include <iomanip>
 
 class	Contact{
 	

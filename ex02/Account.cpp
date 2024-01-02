@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:47:53 by dcarrilh          #+#    #+#             */
-/*   Updated: 2023/12/21 15:41:19 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/01/02 15:08:15 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ Account::Account(int initial_deposit)
 
 Account::~Account(void)
 {
-  // _nbAccounts = 0;
-  // _accountIndex = _nbAccounts;
-  // _nbAccounts++;
   _displayTimestamp();
   std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
@@ -92,9 +89,6 @@ void  Account::displayAccountsInfos(void)
 
 void Account::makeDeposit(int deposit)
 {
-  // _nbAccounts = 0;
-  // _accountIndex = _nbAccounts;
-  // _nbAccounts++;
   _displayTimestamp();
   std::cout << "index:" << _accountIndex << ";p_amount:" << _amount;
   _amount += deposit;
@@ -106,9 +100,6 @@ void Account::makeDeposit(int deposit)
 
 bool Account::makeWithdrawal(int withdrawal)
 {
-  // _nbAccounts = 0;
-  // _accountIndex = _nbAccounts;
-  // _nbAccounts++;
   _displayTimestamp();
   std::cout << "index:" << _accountIndex << ";p_amount:" << _amount;
   if (withdrawal > _amount)
@@ -135,9 +126,6 @@ int Account::checkAmount(void) const
 
 void  Account::displayStatus(void) const
 {
-  // _nbAccounts = 0;
-  // _accountIndex = _nbAccounts;
-  // _nbAccounts++;
   _displayTimestamp();
   std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
