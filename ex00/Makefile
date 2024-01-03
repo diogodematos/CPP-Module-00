@@ -1,6 +1,6 @@
-NAME = Megaphone
+NAME = megaphone
 
-SRC = Megaphone.cpp\
+SRC = megaphone.cpp\
 	
 
 CXX = c++ -g 

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: dcarrilh <dcarrilh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:34:33 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/01/02 12:52:26 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:27:53 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
 
 Phonebook::Phonebook(void){}
 
@@ -49,7 +50,7 @@ std::string Phonebook::Formatten(std::string input)
 
 void	Phonebook::search(void)
 {
-	char	imput;
+	std::string	input;
 	int j = -1;
 	if (size == 0)
 		std::cout << "PhoneBook is empty" << std::endl;
@@ -66,12 +67,12 @@ void	Phonebook::search(void)
 		std::cout << "Choose the contact: ";
 		while (!std::cin.eof())
 		{
-			std::cin >> imput;
-			j = imput - 48;
+			std::cin >> input;
+			j = std::atoi(input.c_str());
 			if (((j) < 1)  || ((j) > size))
 			{
 				std::cout << "Wrong Contact" << std::endl;
-				Phonebook::search();		
+				return Phonebook::search();		
 			}
 			else
 			{
